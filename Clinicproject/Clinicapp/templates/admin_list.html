@@ -1,0 +1,29 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin List</title>
+</head>
+<body>
+    <h1>Admin List</h1>
+    <a href="{% url 'create_admin' %}">Create New Admin</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        {% for admin in admins %}
+        <tr>
+            <td>{{ admin.name }}</td>
+            <td>{{ admin.email }}</td>
+            <td>
+                <a href="{% url 'edit_admin' admin.id %}">Edit</a>
+                <a href="{% url 'delete_admin' admin.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
